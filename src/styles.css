@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f4efe6;
+  --color-paper: #fffdf8;
+  --color-ink: #1c1915;
+  --color-muted: #6f675c;
+  --color-line: #e4d9c8;
+  --color-saffron: #c45c26;
+  --color-saffron-deep: #9a4318;
+  --color-leaf: #2f6b4f;
+  --color-leaf-soft: #e5f2eb;
+  --color-warn: #8a3b2a;
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --radius: 0.9rem;
+}
+
+@layer base {
+  html, body { background: var(--color-bg); color: var(--color-ink); }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+  body { font-family: var(--font-sans); line-height: 1.5; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@layer components {
+  .field {
+    width: 100%;
+    border-radius: 0.6rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-bg);
+    padding: 0.7rem 0.75rem;
+    color: var(--color-ink);
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: 0.7rem;
+    background: var(--color-saffron);
+    color: var(--color-paper);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    min-height: 44px;
+  }
+  .btn-primary:disabled { opacity: 0.5; }
+  .btn-primary:hover:not(:disabled) { background: var(--color-saffron-deep); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 0.7rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    padding: 0.55rem 0.75rem;
+    font-weight: 600;
+    min-height: 44px;
+  }
+  .btn-ghost:hover { border-color: var(--color-ink); }
+}
+
+@media print {
+  body { background: white; }
+  .no-print { display: none !important; }
+  .print-sheet { box-shadow: none !important; border: none !important; }
+}
